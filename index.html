@@ -9,21 +9,49 @@
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            overflow: hidden;
+            overflow: hidden;     
+        }
+        .main {
+            width: 100%;
+            height: 100vh;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            display: flex;
         }
         img {
             width: 100%;
             height: 100vh;
             object-fit: cover;
         }
+        .popup {
+            display: none;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+            font-size: 50px;
+            font-family: 'Courier New', Courier, monospace;
+        }
     </style>
 </head>
 <body>
-    <img onclick="handleClick()" src="/kaoru.gif" alt="">
+    <div class="main">
+        <img onclick="handleClick()" src="/kaoru.gif" alt="">
+        <div class="popup">Leg is not responding</div>
+    </div>
 </body>
 <script>
     function handleClick() {
-        alert("Leg is not responding");
+        const popup = document.querySelector('.popup');
+        popup.style.display = 'block';
+        setTimeout(() => {
+            popup.style.display = 'none';
+        }, 2000);
     }
 </script>
 </html>
